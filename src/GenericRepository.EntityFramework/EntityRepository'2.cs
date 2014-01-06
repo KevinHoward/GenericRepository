@@ -17,6 +17,10 @@ namespace GenericRepository.EntityFramework {
 
         private readonly IEntitiesContext _dbContext;
 
+        /// <summary>
+        /// Creates an Entity Repository instance
+        /// </summary>
+        /// <param name="dbContext">Database Context for repository instance</param>
         public EntityRepository(IEntitiesContext dbContext) {
 
             if (dbContext == null) {
@@ -27,6 +31,10 @@ namespace GenericRepository.EntityFramework {
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Get All Entities Query
+        /// </summary>
+        /// <returns>IQueryable for All TEntity entities</returns>
         public IQueryable<TEntity> GetAll() {
 
             return _dbContext.Set<TEntity>();

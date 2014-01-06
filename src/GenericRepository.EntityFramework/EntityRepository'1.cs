@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-
+﻿
 namespace GenericRepository.EntityFramework {
     
     /// <summary>
@@ -9,6 +8,10 @@ namespace GenericRepository.EntityFramework {
     public class EntityRepository<TEntity> : EntityRepository<TEntity, int>, IEntityRepository<TEntity>
         where TEntity : class, IEntity<int> {
 
+        /// <summary>
+        /// Creates an Entity Repository instance
+        /// </summary>
+        /// <param name="dbContext">Database Context for repository instance</param>
         public EntityRepository(IEntitiesContext dbContext)
             : base(dbContext) { 
 
